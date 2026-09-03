@@ -364,133 +364,139 @@ function App() {
       </section>
 
 
-      {/* JOURNEY */}
-      <section id="journey" className="journey reveal">
+     {/* JOURNEY */}
+<section id="journey" className="journey reveal">
 
-        <div className="section-label">
-          04 — JOURNEY
+  <div className="section-label">
+    04 — JOURNEY
+  </div>
+
+  <div className="journey-heading">
+    <h2>Education & experience.</h2>
+  </div>
+
+  <div className="timeline">
+
+    {/* 2023 */}
+    <div className="timeline-item">
+
+      <div className="timeline-year">
+        2023
+      </div>
+
+      <div className="timeline-dot"></div>
+
+      <div className="timeline-content">
+
+        <div className="timeline-type">
+          EDUCATION
         </div>
 
-        <div className="journey-heading">
-          <h2>The journey so far.</h2>
+        <h3>Higher Secondary</h3>
+
+        <h4>HM Education Centre</h4>
+
+        <p>
+          Completed Higher Secondary education in 2023.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    {/* 2024 */}
+    <div className="timeline-item">
+
+      <div className="timeline-year">
+        2024
+      </div>
+
+      <div className="timeline-dot"></div>
+
+      <div className="timeline-content">
+
+        <div className="timeline-type">
+          EDUCATION
         </div>
 
+        <h3>Data Science</h3>
 
-        <div className="timeline">
+        <h4>Undergraduate Studies</h4>
 
-          {/* 2023 */}
-          <div className="timeline-item">
+        <p>
+          Building a strong foundation in programming, statistics,
+          databases, data analysis and machine learning.
+        </p>
 
-            <div className="timeline-year">
-              2023
-            </div>
-
-            <div className="timeline-dot"></div>
-
-            <div className="timeline-content">
-
-              <div className="timeline-type">
-                EDUCATION
-              </div>
-
-              <h3>Higher Secondary</h3>
-
-              <p>
-                Completed Higher Secondary education from
-                <strong> HM Education Centre</strong>, building a
-                strong foundation for my journey into technology
-                and data science.
-              </p>
-
-            </div>
-
-          </div>
-
-
-          {/* 2024 */}
-          <div className="timeline-item">
-
-            <div className="timeline-year">
-              2024
-            </div>
-
-            <div className="timeline-dot"></div>
-
-            <div className="timeline-content">
-
-              <div className="timeline-type">
-                EDUCATION
-              </div>
-
-              <h3>Data Science</h3>
-
-              <p>
-                Built a strong foundation in programming,
-                statistics, databases and machine learning.
-              </p>
-
-            </div>
-
-          </div>
-
-
-          {/* 2025 */}
-          <div className="timeline-item">
-
-            <div className="timeline-year">
-              2025
-            </div>
-
-            <div className="timeline-dot active"></div>
-
-            <div className="timeline-content">
-
-              <div className="timeline-type">
-                PROJECT
-              </div>
-
-              <h3>Sales Lens</h3>
-
-              <p>
-                Built an interactive analytics project using
-                Python, Pandas and Streamlit.
-              </p>
-
-            </div>
-
-          </div>
-
-
-          {/* NOW */}
-          <div className="timeline-item">
-
-            <div className="timeline-year">
-              NOW
-            </div>
-
-            <div className="timeline-dot active"></div>
-
-            <div className="timeline-content">
-
-              <div className="timeline-type">
-                GOAL
-              </div>
-
-              <h3>Becoming a Data Scientist</h3>
-
-              <p>
-                Continuing to strengthen my skills and build
-                meaningful data-driven solutions.
-              </p>
-
-            </div>
-
-          </div>
-
+        <div className="timeline-detail">
+          CGPA <strong>7.1</strong>
         </div>
 
-      </section>
+      </div>
 
+    </div>
+
+
+    {/* 2025 */}
+    <div className="timeline-item">
+
+      <div className="timeline-year">
+        2025
+      </div>
+
+      <div className="timeline-dot active"></div>
+
+      <div className="timeline-content">
+
+        <div className="timeline-type">
+          PROJECT
+        </div>
+
+        <h3>Sales Lens</h3>
+
+        <h4>End-to-End Data Analytics</h4>
+
+        <p>
+          Built an interactive sales analytics platform using
+          Python, Pandas, Django, Snowflake and AWS S3.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    {/* NOW */}
+    <div className="timeline-item">
+
+      <div className="timeline-year">
+        NOW
+      </div>
+
+      <div className="timeline-dot active"></div>
+
+      <div className="timeline-content">
+
+        <div className="timeline-type">
+          GOAL
+        </div>
+
+        <h3>Becoming a Data Scientist</h3>
+
+        <p>
+          Continuing to strengthen my analytical, technical and
+          machine learning skills while building meaningful
+          data-driven solutions.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
       {/* CONTACT */}
       <section id="contact" className="contact reveal">
