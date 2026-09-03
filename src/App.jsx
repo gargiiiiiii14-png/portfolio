@@ -1,3 +1,4 @@
+```jsx
 import React from "react"
 import "./App.css"
 
@@ -77,12 +78,19 @@ function App() {
 
         <div className="about-content">
 
-          <h2>
-            I don't just analyze data.
-            <br />
-            I look for the
-            <span> story hidden inside it.</span>
+          <h2 className="about-heading">
+            <span className="about-line">
+              I don't just analyze data.
+            </span>
+
+            <span className="about-line">
+              I look for the{" "}
+              <span className="about-highlight">
+                story hidden inside it.
+              </span>
+            </span>
           </h2>
+
 
           <div className="about-text">
 
@@ -143,164 +151,166 @@ function App() {
 
         <div className="projects-grid">
 
+          {/* SALES LENS */}
           <div className="project-card">
 
-  <div className="project-number">
-    01
-  </div>
+            <div className="project-number">
+              01
+            </div>
 
-  <div className="project-info">
+            <div className="project-info">
 
-    <div className="project-type">
-      END-TO-END DATA ANALYTICS
-    </div>
+              <div className="project-type">
+                END-TO-END DATA ANALYTICS
+              </div>
 
-    <h3>Sales Lens</h3>
+              <h3>Sales Lens</h3>
 
-    <p>
-      An end-to-end sales analytics platform that transforms
-      raw CSV and Excel data into meaningful business insights
-      through automated data processing, cloud storage,
-      analytics and AI-powered summaries.
-    </p>
+              <p>
+                An end-to-end sales analytics platform that transforms
+                raw CSV and Excel data into meaningful business insights
+                through automated data processing, cloud storage,
+                analytics and AI-powered summaries.
+              </p>
 
-    <div className="case-study">
+              <div className="case-study">
 
-      <div>
-        <span>THE APPROACH</span>
-        <p>
-          Built a data pipeline to clean, transform and validate
-          sales data before storing it in Snowflake for analysis.
-        </p>
-      </div>
+                <div>
+                  <span>THE APPROACH</span>
+                  <p>
+                    Built a data pipeline to clean, transform and validate
+                    sales data before storing it in Snowflake for analysis.
+                  </p>
+                </div>
 
-      <div>
-        <span>KEY FEATURES</span>
-        <p>
-          Sales and profit analysis, regional and product insights,
-          interactive analytics and AI-generated executive summaries.
-        </p>
-      </div>
+                <div>
+                  <span>KEY FEATURES</span>
+                  <p>
+                    Sales and profit analysis, regional and product insights,
+                    interactive analytics and AI-generated executive summaries.
+                  </p>
+                </div>
 
-      <div>
-        <span>TECHNOLOGY</span>
+                <div>
+                  <span>TECHNOLOGY</span>
 
-        <div className="project-tags">
-          <span>Python</span>
-          <span>Pandas</span>
-          <span>Django</span>
-          <span>Snowflake</span>
-          <span>AWS S3</span>
-          <span>Gemini AI</span>
+                  <div className="project-tags">
+                    <span>Python</span>
+                    <span>Pandas</span>
+                    <span>Django</span>
+                    <span>Snowflake</span>
+                    <span>AWS S3</span>
+                    <span>Gemini AI</span>
+                  </div>
+                </div>
+
+              </div>
+
+              <a
+                href="https://github.com/gargiiiiiii14-png/Sales-Lens"
+                target="_blank"
+                rel="noreferrer"
+                className="project-link"
+              >
+                View on GitHub ↗
+              </a>
+
+            </div>
+
+            <div className="project-arrow">
+              ↗
+            </div>
+
+          </div>
+
+
+          {/* CREDIT RISK */}
+          <div className="project-card">
+
+            <div className="project-number">
+              02
+            </div>
+
+            <div className="project-info">
+
+              <div className="project-type">
+                MACHINE LEARNING
+              </div>
+
+              <h3>Credit Risk Analysis</h3>
+
+              <p>
+                A machine learning model designed to predict credit risk
+                using customer financial and demographic information,
+                with an interactive application for real-time predictions.
+              </p>
+
+              <div className="case-study">
+
+                <div>
+                  <span>THE APPROACH</span>
+                  <p>
+                    Preprocessed the German Credit Dataset, performed
+                    feature engineering and compared multiple
+                    classification models before selecting the best approach.
+                  </p>
+                </div>
+
+                <div>
+                  <span>MODEL & RESULTS</span>
+                  <p>
+                    Random Forest with GridSearchCV achieved 71.5% accuracy,
+                    88.57% recall and an 81.31% F1 score.
+                  </p>
+                </div>
+
+                <div>
+                  <span>TECHNOLOGY</span>
+
+                  <div className="project-tags">
+                    <span>Python</span>
+                    <span>Pandas</span>
+                    <span>Scikit-learn</span>
+                    <span>GridSearchCV</span>
+                    <span>Streamlit</span>
+                    <span>Joblib</span>
+                  </div>
+                </div>
+
+              </div>
+
+
+              <div className="project-links">
+
+                <a
+                  href="https://github.com/gargiiiiiii14-png/Credit_Risk_Prediction_Model"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="project-link"
+                >
+                  GitHub ↗
+                </a>
+
+                <a
+                  href="https://creditriskpredictionmodel-fzjtbhp4msn6d74sdtm5wv.streamlit.app/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="project-link"
+                >
+                  Live Demo ↗
+                </a>
+
+              </div>
+
+            </div>
+
+            <div className="project-arrow">
+              ↗
+            </div>
+
+          </div>
+
         </div>
-      </div>
-
-    </div>
-
-    <a
-      href="https://github.com/gargiiiiiii14-png/Sales-Lens"
-      target="_blank"
-      rel="noreferrer"
-      className="project-link"
-    >
-      View on GitHub ↗
-    </a>
-
-  </div>
-
-  <div className="project-arrow">
-    ↗
-  </div>
-
-</div>
-
-<div className="project-card">
-
-  <div className="project-number">
-    02
-  </div>
-
-  <div className="project-info">
-
-    <div className="project-type">
-      MACHINE LEARNING
-    </div>
-
-    <h3>Credit Risk Analysis</h3>
-
-    <p>
-      A machine learning model designed to predict credit risk
-      using customer financial and demographic information,
-      with an interactive application for real-time predictions.
-    </p>
-
-    <div className="case-study">
-
-      <div>
-        <span>THE APPROACH</span>
-        <p>
-          Preprocessed the German Credit Dataset, performed
-          feature engineering and compared multiple
-          classification models before selecting the best approach.
-        </p>
-      </div>
-
-      <div>
-        <span>MODEL & RESULTS</span>
-        <p>
-          Random Forest with GridSearchCV achieved 71.5% accuracy,
-          88.57% recall and an 81.31% F1 score.
-        </p>
-      </div>
-
-      <div>
-        <span>TECHNOLOGY</span>
-
-        <div className="project-tags">
-          <span>Python</span>
-          <span>Pandas</span>
-          <span>Scikit-learn</span>
-          <span>GridSearchCV</span>
-          <span>Streamlit</span>
-          <span>Joblib</span>
-        </div>
-      </div>
-
-    </div>
-
-    <div className="project-links">
-
-  <a
-    href="https://github.com/gargiiiiiii14-png/Credit_Risk_Prediction_Model"
-    target="_blank"
-    rel="noreferrer"
-    className="project-link"
-  >
-    GitHub ↗
-  </a>
-
-  <a
-    href="https://creditriskpredictionmodel-fzjtbhp4msn6d74sdtm5wv.streamlit.app/"
-    target="_blank"
-    rel="noreferrer"
-    className="project-link"
-  >
-    Live Demo ↗
-  </a>
-
-</div>
-
-  </div>
-
-  <div className="project-arrow">
-    ↗
-  </div>
-
-</div>
-
-</div>
-
-
 
       </section>
 
@@ -368,10 +378,11 @@ function App() {
 
         <div className="timeline">
 
+          {/* 2023 */}
           <div className="timeline-item">
 
             <div className="timeline-year">
-              2020
+              2023
             </div>
 
             <div className="timeline-dot"></div>
@@ -385,8 +396,10 @@ function App() {
               <h3>Higher Secondary</h3>
 
               <p>
-                Completed higher secondary education and
-                began exploring technology and analytical thinking.
+                Completed Higher Secondary education from
+                <strong> HM Education Centre</strong>, building a
+                strong foundation for my journey into technology
+                and data science.
               </p>
 
             </div>
@@ -394,6 +407,7 @@ function App() {
           </div>
 
 
+          {/* 2024 */}
           <div className="timeline-item">
 
             <div className="timeline-year">
@@ -420,6 +434,7 @@ function App() {
           </div>
 
 
+          {/* 2025 */}
           <div className="timeline-item">
 
             <div className="timeline-year">
@@ -446,6 +461,7 @@ function App() {
           </div>
 
 
+          {/* NOW */}
           <div className="timeline-item">
 
             <div className="timeline-year">
@@ -504,23 +520,23 @@ function App() {
 
           <div className="contact-links">
 
-  <a
-    href="https://github.com/gargiiiiiii14-png"
-    target="_blank"
-    rel="noreferrer"
-  >
-    GitHub ↗
-  </a>
+            <a
+              href="https://github.com/gargiiiiiii14-png"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub ↗
+            </a>
 
-  <a
-    href="https://www.linkedin.com/in/gargi-rakshit-634047292/"
-    target="_blank"
-    rel="noreferrer"
-  >
-    LinkedIn ↗
-  </a>
+            <a
+              href="https://www.linkedin.com/in/gargi-rakshit-634047292/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn ↗
+            </a>
 
-</div>
+          </div>
 
         </div>
 
@@ -545,3 +561,4 @@ function App() {
 }
 
 export default App
+```
