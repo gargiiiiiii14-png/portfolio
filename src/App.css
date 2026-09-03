@@ -3,6 +3,8 @@
 ========================================= */
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -57,12 +59,13 @@ body {
   font-weight: 700;
   font-size: 15px;
   transition: all 0.25s ease;
+  display: inline-block;
 }
 
 .nav-links a:hover {
   background: #000000;
   color: #F4E7A1;
-  padding: 8px 12px;
+  transform: translateY(-2px);
 }
 
 
@@ -98,8 +101,6 @@ body {
   line-height: 0.82;
   letter-spacing: -8px;
   font-weight: 900;
-
-  /* outlined / transparent effect */
   -webkit-text-stroke: 2px #000000;
   color: transparent;
 }
@@ -206,30 +207,19 @@ body {
 .contact {
   padding: 100px 6%;
   border-bottom: 5px solid #000000;
-
-  transition:
-    background-color 0.35s ease,
-    color 0.35s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 
 /* =========================================
-   SECTION HOVER EFFECT
+   SECTION HOVER
 ========================================= */
 
 .about:hover,
 .projects:hover,
 .skills:hover,
 .journey:hover {
-  background: #000000;
-  color: #F4E7A1;
-}
-
-.about:hover .section-title,
-.projects:hover .section-title,
-.skills:hover .section-title,
-.journey:hover .section-title {
-  color: #F4E7A1;
+  background: #E8D88A;
 }
 
 
@@ -243,7 +233,7 @@ body {
   letter-spacing: -5px;
   font-weight: 900;
   margin: 0 0 60px;
-  transition: color 0.35s ease;
+  transition: color 0.3s ease;
 }
 
 
@@ -288,13 +278,9 @@ body {
   display: block;
 }
 
-.about:hover .stat {
-  border-color: #F4E7A1;
-}
-
-.about:hover .stat:hover {
-  background: #F4E7A1;
-  color: #000000;
+.stat:hover {
+  background: #000000;
+  color: #F4E7A1;
   transform: translateY(-8px);
 }
 
@@ -330,15 +316,7 @@ body {
 .project-card:hover {
   transform: translateY(-10px);
   box-shadow: 10px 10px 0 #000000;
-}
-
-.projects:hover .project-card {
-  border-color: #F4E7A1;
-}
-
-.projects:hover .project-card:hover {
-  background: #F4E7A1;
-  color: #000000;
+  background: #F8EDB5;
 }
 
 .project-number {
@@ -423,15 +401,6 @@ body {
   transform: translateY(-7px);
 }
 
-.skills:hover .skill {
-  border-color: #F4E7A1;
-}
-
-.skills:hover .skill:hover {
-  background: #F4E7A1;
-  color: #000000;
-}
-
 
 /* =========================================
    JOURNEY
@@ -449,11 +418,15 @@ body {
   gap: 30px;
   padding: 30px 0;
   border-top: 3px solid #000000;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .journey-item:last-child {
   border-bottom: 3px solid #000000;
+}
+
+.journey-item:hover {
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .journey-year {
@@ -471,14 +444,6 @@ body {
   margin: 0;
   font-size: 16px;
   line-height: 1.5;
-}
-
-.journey:hover .journey-item {
-  border-color: #F4E7A1;
-}
-
-.journey-item:hover {
-  padding-left: 15px;
 }
 
 
