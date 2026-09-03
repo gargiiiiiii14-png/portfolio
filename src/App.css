@@ -1,6 +1,6 @@
 /* =========================================================
    GARGI RAKSHIT — PORTFOLIO
-   CSS matched to the CURRENT App.jsx class names
+   Responsive CSS
    ========================================================= */
 
 * {
@@ -59,7 +59,10 @@ body {
   text-decoration: none;
   font-weight: 700;
   font-size: 15px;
-  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease;
 }
 
 .nav-links a:hover {
@@ -85,6 +88,7 @@ body {
 
 .hero-content {
   max-width: 750px;
+  min-width: 0;
 }
 
 .hero-label {
@@ -263,6 +267,7 @@ body {
 
 .about-content {
   max-width: 1050px;
+  min-width: 0;
 }
 
 .about h2,
@@ -272,7 +277,7 @@ body {
 .contact h2 {
   margin: 0;
   font-size: clamp(50px, 8vw, 110px);
-  line-height: 0.9;
+  line-height: 0.95;
   letter-spacing: -5px;
   font-weight: 900;
 }
@@ -293,6 +298,7 @@ body {
   line-height: 1.6;
   font-weight: 500;
   margin-bottom: 20px;
+  overflow-wrap: break-word;
 }
 
 .about-stats {
@@ -306,6 +312,7 @@ body {
   border: 4px solid #000000;
   padding: 30px;
   transition: all 0.3s ease;
+  min-width: 0;
 }
 
 .stat strong {
@@ -348,7 +355,11 @@ body {
   padding: 35px;
   background: #F4E7A1;
   color: #000000;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  min-width: 0;
 }
 
 .project-card:hover {
@@ -373,7 +384,7 @@ body {
 
 .project-info h3 {
   font-size: 48px;
-  line-height: 0.95;
+  line-height: 1;
   letter-spacing: -2px;
   margin: 0 0 20px;
   font-weight: 900;
@@ -482,6 +493,7 @@ body {
   justify-content: space-between;
   gap: 20px;
   transition: all 0.3s ease;
+  min-width: 0;
 }
 
 .skill-item span {
@@ -501,7 +513,7 @@ body {
 }
 
 /* =========================================================
-   JOURNEY — MATCHES .timeline / .timeline-item IN App.jsx
+   JOURNEY / TIMELINE
    ========================================================= */
 
 .journey-heading {
@@ -566,6 +578,7 @@ body {
   max-width: 800px;
   padding-bottom: 25px;
   border-bottom: 2px solid #000000;
+  min-width: 0;
 }
 
 .timeline-item:last-child .timeline-content {
@@ -575,6 +588,7 @@ body {
 .timeline-content h3 {
   margin: 0 0 10px;
   font-size: 32px;
+  line-height: 1.2;
   font-weight: 900;
   letter-spacing: -1px;
 }
@@ -583,6 +597,24 @@ body {
   margin: 0;
   font-size: 17px;
   line-height: 1.6;
+}
+
+/* IMPORTANT:
+   Keeps bullet lists away from the timeline line.
+*/
+
+.timeline-content ul {
+  margin: 15px 0 0;
+  padding-left: 22px;
+}
+
+.timeline-content li {
+  margin-bottom: 8px;
+  line-height: 1.55;
+}
+
+.timeline-content li:last-child {
+  margin-bottom: 0;
 }
 
 /* =========================================================
@@ -666,6 +698,7 @@ body {
    ========================================================= */
 
 @media (max-width: 900px) {
+
   .hero {
     flex-direction: column;
     align-items: flex-start;
@@ -689,6 +722,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  /* Tablet timeline */
   .timeline {
     padding-left: 120px;
   }
@@ -701,6 +735,10 @@ body {
     left: -120px;
     width: 75px;
   }
+
+  .timeline-dot {
+    left: -42px;
+  }
 }
 
 /* =========================================================
@@ -708,6 +746,11 @@ body {
    ========================================================= */
 
 @media (max-width: 600px) {
+
+  /* -------------------------
+     NAVBAR
+     ------------------------- */
+
   .navbar {
     height: auto;
     min-height: 70px;
@@ -725,6 +768,10 @@ body {
   .nav-links a {
     font-size: 11px;
   }
+
+  /* -------------------------
+     HERO
+     ------------------------- */
 
   .hero {
     min-height: auto;
@@ -746,6 +793,7 @@ body {
 
   .hero-description {
     font-size: 16px;
+    line-height: 1.6;
     margin-top: 30px;
   }
 
@@ -753,6 +801,10 @@ body {
     font-size: 14px;
     padding: 14px 20px;
   }
+
+  /* -------------------------
+     DATA VISUAL
+     ------------------------- */
 
   .data-visual {
     width: 270px;
@@ -794,6 +846,10 @@ body {
     font-size: 9px;
   }
 
+  /* -------------------------
+     SECTIONS
+     ------------------------- */
+
   .about,
   .projects,
   .skills,
@@ -808,15 +864,30 @@ body {
   .journey-heading h2,
   .contact h2 {
     font-size: 52px;
+    line-height: 1;
     letter-spacing: -3px;
+  }
+
+  /* -------------------------
+     ABOUT
+     ------------------------- */
+
+  .about-text {
+    margin-top: 35px;
+    width: 100%;
   }
 
   .about-text p {
     font-size: 17px;
+    line-height: 1.65;
+    margin-bottom: 20px;
+    overflow-wrap: break-word;
   }
 
   .about-stats {
     margin-top: 45px;
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 
   .stat {
@@ -827,16 +898,22 @@ body {
     font-size: 42px;
   }
 
+  /* -------------------------
+     PROJECTS
+     ------------------------- */
+
   .project-card {
     padding: 25px;
   }
 
   .project-info h3 {
     font-size: 36px;
+    line-height: 1.1;
   }
 
   .project-info > p {
     font-size: 15px;
+    line-height: 1.6;
   }
 
   .project-arrow {
@@ -844,51 +921,111 @@ body {
     top: 20px;
   }
 
+  /* -------------------------
+     SKILLS
+     ------------------------- */
+
   .skills-grid {
     grid-template-columns: 1fr;
+  }
+
+  .skill-item {
+    padding: 20px;
   }
 
   .skill-item strong {
     font-size: 19px;
   }
 
+  /* =====================================================
+     MOBILE TIMELINE
+     ===================================================== */
+
   .timeline {
-    padding-left: 45px;
+    position: relative;
+    width: 100%;
+    padding-left: 38px;
   }
 
+  /* Timeline line stays in its own narrow column */
   .timeline::before {
-    left: 8px;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
   }
 
+  .timeline-item {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0 0 45px 0;
+    min-height: auto;
+  }
+
+  .timeline-item:last-child {
+    padding-bottom: 0;
+  }
+
+  /* Year is now part of normal document flow */
   .timeline-year {
     position: static;
     width: auto;
     text-align: left;
-    margin-bottom: 10px;
+    margin: 0 0 8px 0;
     font-size: 17px;
+    line-height: 1.3;
   }
 
+  /* Dot stays safely on the timeline */
   .timeline-dot {
-    left: 0;
-    top: 31px;
+    position: absolute;
+    left: -38px;
+    top: 1px;
     width: 16px;
     height: 16px;
+    border-width: 3px;
   }
 
+  /* Content can never sit underneath the timeline */
   .timeline-content {
-    padding-left: 0;
+    width: 100%;
+    max-width: none;
+    padding: 0 0 20px 0;
+    min-width: 0;
   }
 
   .timeline-content h3 {
     font-size: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin: 0 0 10px;
   }
 
   .timeline-content p {
     font-size: 15px;
+    line-height: 1.65;
   }
+
+  /* Bullet points get their own indentation */
+  .timeline-content ul {
+    margin: 15px 0 0;
+    padding-left: 20px;
+  }
+
+  .timeline-content li {
+    margin-bottom: 9px;
+    line-height: 1.55;
+    padding-left: 3px;
+  }
+
+  /* -------------------------
+     CONTACT
+     ------------------------- */
 
   .contact-description {
     font-size: 18px;
+    line-height: 1.6;
   }
 
   .contact-links {
@@ -896,10 +1033,53 @@ body {
     align-items: flex-start;
   }
 
+  /* -------------------------
+     FOOTER
+     ------------------------- */
+
   .footer {
     flex-direction: column;
     gap: 10px;
     text-align: center;
     padding: 25px 5%;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .nav-links {
+    gap: 8px;
+  }
+
+  .nav-links a {
+    font-size: 10px;
+  }
+
+  .hero h1 {
+    font-size: 50px;
+  }
+
+  .about h2,
+  .projects-heading h2,
+  .skills-heading h2,
+  .journey-heading h2,
+  .contact h2 {
+    font-size: 46px;
+  }
+
+  .timeline {
+    padding-left: 34px;
+  }
+
+  .timeline::before {
+    left: 6px;
+  }
+
+  .timeline-dot {
+    left: -34px;
   }
 }
