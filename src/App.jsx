@@ -387,7 +387,7 @@ function App() {
       <div className="timeline-dot"></div>
 
       <div className="timeline-content">
-
+      
         <div className="timeline-type">
           EDUCATION
         </div>
