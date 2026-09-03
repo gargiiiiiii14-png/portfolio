@@ -609,7 +609,33 @@ body {
 /* ================================
    RESPONSIVE
 ================================ */
+/* ================================
+   HOVER EFFECT
+================================ */
 
+.project-card {
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.project-card:hover {
+  background: #E8D88A;
+}
+
+.skill-item {
+  transition: background-color 0.25s ease;
+}
+
+.skill-item:hover {
+  background: #E8D88A;
+}
+
+.stat {
+  transition: background-color 0.25s ease;
+}
+
+.stat:hover {
+  background: #E8D88A;
+}
 @media (max-width: 900px) {
 
   .hero {
