@@ -1,4 +1,3 @@
-```jsx
 import React from "react"
 import "./App.css"
 
@@ -18,7 +17,6 @@ function App() {
           <a href="#contact">Contact</a>
         </div>
       </nav>
-
 
       {/* HERO */}
       <section className="hero">
@@ -45,7 +43,6 @@ function App() {
 
         </div>
 
-
         {/* DATA VISUAL */}
         <div className="data-visual">
 
@@ -68,7 +65,6 @@ function App() {
 
       </section>
 
-
       {/* ABOUT */}
       <section id="about" className="about reveal">
 
@@ -79,18 +75,19 @@ function App() {
         <div className="about-content">
 
           <h2 className="about-heading">
-            <span className="about-line">
-              I don't just analyze data.
-            </span>
 
-            <span className="about-line">
+            <div className="about-line">
+              I don't just analyze data.
+            </div>
+
+            <div className="about-line">
               I look for the{" "}
               <span className="about-highlight">
                 story hidden inside it.
               </span>
-            </span>
-          </h2>
+            </div>
 
+          </h2>
 
           <div className="about-text">
 
@@ -114,7 +111,6 @@ function App() {
 
         </div>
 
-
         <div className="about-stats">
 
           <div className="stat">
@@ -136,7 +132,6 @@ function App() {
 
       </section>
 
-
       {/* PROJECTS */}
       <section id="work" className="projects reveal">
 
@@ -147,7 +142,6 @@ function App() {
         <div className="projects-heading">
           <h2>Things I've built.</h2>
         </div>
-
 
         <div className="projects-grid">
 
@@ -202,6 +196,7 @@ function App() {
                     <span>AWS S3</span>
                     <span>Gemini AI</span>
                   </div>
+
                 </div>
 
               </div>
@@ -222,7 +217,6 @@ function App() {
             </div>
 
           </div>
-
 
           {/* CREDIT RISK */}
           <div className="project-card">
@@ -275,10 +269,10 @@ function App() {
                     <span>Streamlit</span>
                     <span>Joblib</span>
                   </div>
+
                 </div>
 
               </div>
-
 
               <div className="project-links">
 
@@ -314,7 +308,6 @@ function App() {
 
       </section>
 
-
       {/* SKILLS */}
       <section id="skills" className="skills reveal">
 
@@ -325,7 +318,6 @@ function App() {
         <div className="skills-heading">
           <h2>Tools I work with.</h2>
         </div>
-
 
         <div className="skills-grid">
 
@@ -363,140 +355,136 @@ function App() {
 
       </section>
 
+      {/* JOURNEY */}
+      <section id="journey" className="journey reveal">
 
-     {/* JOURNEY */}
-<section id="journey" className="journey reveal">
-
-  <div className="section-label">
-    04 — JOURNEY
-  </div>
-
-  <div className="journey-heading">
-    <h2>Education & experience.</h2>
-  </div>
-
-  <div className="timeline">
-
-    {/* 2023 */}
-    <div className="timeline-item">
-
-      <div className="timeline-year">
-        2023
-      </div>
-
-      <div className="timeline-dot"></div>
-
-      <div className="timeline-content">
-      
-        <div className="timeline-type">
-          EDUCATION
+        <div className="section-label">
+          04 — JOURNEY
         </div>
 
-        <h3>Higher Secondary</h3>
-
-        <h4>HM Education Centre</h4>
-
-        <p>
-          Completed Higher Secondary education in 2023.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    {/* 2024 */}
-    <div className="timeline-item">
-
-      <div className="timeline-year">
-        2024
-      </div>
-
-      <div className="timeline-dot"></div>
-
-      <div className="timeline-content">
-
-        <div className="timeline-type">
-          EDUCATION
+        <div className="journey-heading">
+          <h2>Education & experience.</h2>
         </div>
 
-        <h3>Data Science</h3>
+        <div className="timeline">
 
-        <h4>Undergraduate Studies</h4>
+          {/* 2023 — HIGHER SECONDARY */}
+          <div className="timeline-item">
 
-        <p>
-          Building a strong foundation in programming, statistics,
-          databases, data analysis and machine learning.
-        </p>
+            <div className="timeline-year">
+              2023
+            </div>
 
-        <div className="timeline-detail">
-          CGPA <strong>7.1</strong>
+            <div className="timeline-dot"></div>
+
+            <div className="timeline-content">
+
+              <div className="timeline-type">
+                EDUCATION
+              </div>
+
+              <h3>Higher Secondary</h3>
+
+              <h4>HM Education Centre</h4>
+
+              <p>
+                Completed Higher Secondary education in 2023.
+              </p>
+
+            </div>
+
+          </div>
+
+          {/* 2024 — DATA SCIENCE */}
+          <div className="timeline-item">
+
+            <div className="timeline-year">
+              2024
+            </div>
+
+            <div className="timeline-dot"></div>
+
+            <div className="timeline-content">
+
+              <div className="timeline-type">
+                EDUCATION
+              </div>
+
+              <h3>Data Science</h3>
+
+              <h4>Undergraduate Studies</h4>
+
+              <p>
+                Building a strong foundation in programming, statistics,
+                databases, data analysis and machine learning.
+              </p>
+
+              <div className="timeline-detail">
+                CGPA <strong>7.1</strong>
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* 2025 — SALES LENS */}
+          <div className="timeline-item">
+
+            <div className="timeline-year">
+              2025
+            </div>
+
+            <div className="timeline-dot active"></div>
+
+            <div className="timeline-content">
+
+              <div className="timeline-type">
+                PROJECT
+              </div>
+
+              <h3>Sales Lens</h3>
+
+              <h4>End-to-End Data Analytics</h4>
+
+              <p>
+                Built an interactive sales analytics platform using
+                Python, Pandas, Django, Snowflake and AWS S3.
+              </p>
+
+            </div>
+
+          </div>
+
+          {/* NOW — GOAL */}
+          <div className="timeline-item">
+
+            <div className="timeline-year">
+              NOW
+            </div>
+
+            <div className="timeline-dot active"></div>
+
+            <div className="timeline-content">
+
+              <div className="timeline-type">
+                GOAL
+              </div>
+
+              <h3>Becoming a Data Scientist</h3>
+
+              <p>
+                Continuing to strengthen my analytical, technical and
+                machine learning skills while building meaningful
+                data-driven solutions.
+              </p>
+
+            </div>
+
+          </div>
+
         </div>
 
-      </div>
-
-    </div>
-
-
-    {/* 2025 */}
-    <div className="timeline-item">
-
-      <div className="timeline-year">
-        2025
-      </div>
-
-      <div className="timeline-dot active"></div>
-
-      <div className="timeline-content">
-
-        <div className="timeline-type">
-          PROJECT
-        </div>
-
-        <h3>Sales Lens</h3>
-
-        <h4>End-to-End Data Analytics</h4>
-
-        <p>
-          Built an interactive sales analytics platform using
-          Python, Pandas, Django, Snowflake and AWS S3.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    {/* NOW */}
-    <div className="timeline-item">
-
-      <div className="timeline-year">
-        NOW
-      </div>
-
-      <div className="timeline-dot active"></div>
-
-      <div className="timeline-content">
-
-        <div className="timeline-type">
-          GOAL
-        </div>
-
-        <h3>Becoming a Data Scientist</h3>
-
-        <p>
-          Continuing to strengthen my analytical, technical and
-          machine learning skills while building meaningful
-          data-driven solutions.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
+      </section>
 
       {/* CONTACT */}
       <section id="contact" className="contact reveal">
@@ -548,7 +536,6 @@ function App() {
 
       </section>
 
-
       {/* FOOTER */}
       <footer className="footer">
 
@@ -567,4 +554,3 @@ function App() {
 }
 
 export default App
-
