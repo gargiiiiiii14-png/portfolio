@@ -1,25 +1,146 @@
-import React from "react"
+import React, { useEffect, useRef, useState } from "react"
 import "./App.css"
 
 function App() {
-  return (
-    <div className="portfolio">
+  const [activeSection, setActiveSection] = useState("about")
+  const [mousePosition, setMousePosition] = useState({
+    x: 50,
+    y: 50,
+  })
 
-      {/* NAVBAR */}
+  const sectionRefs = useRef([])
+
+  /* =========================================
+     MOUSE FOLLOW GLOW
+  ========================================= */
+
+  const handleMouseMove = (e) => {
+    const x = (e.clientX / window.innerWidth) * 100
+    const y = (e.clientY / window.innerHeight) * 100
+
+    setMousePosition({
+      x,
+      y,
+    })
+  }
+
+  /* =========================================
+     SCROLL REVEAL + ACTIVE NAV
+  ========================================= */
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]")
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible")
+
+            setActiveSection(entry.target.id)
+          }
+        })
+      },
+      {
+        threshold: 0.2,
+        rootMargin: "-80px 0px -20% 0px",
+      }
+    )
+
+    sections.forEach((section) => observer.observe(section))
+
+    return () => observer.disconnect()
+  }, [])
+
+  /* =========================================
+     PROJECT CARD TILT
+  ========================================= */
+
+  const handleCardMove = (e) => {
+    const card = e.currentTarget
+
+    const rect = card.getBoundingClientRect()
+
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+
+    const centerX = rect.width / 2
+    const centerY = rect.height / 2
+
+    const rotateX = ((y - centerY) / centerY) * -3
+    const rotateY = ((x - centerX) / centerX) * 3
+
+    card.style.setProperty("--rotate-x", `${rotateX}deg`)
+    card.style.setProperty("--rotate-y", `${rotateY}deg`)
+    card.style.setProperty("--mouse-x", `${x}px`)
+    card.style.setProperty("--mouse-y", `${y}px`)
+  }
+
+  const resetCard = (e) => {
+    const card = e.currentTarget
+
+    card.style.setProperty("--rotate-x", "0deg")
+    card.style.setProperty("--rotate-y", "0deg")
+  }
+
+  /* =========================================
+     NAVIGATION
+  ========================================= */
+
+  const navItems = [
+    { id: "about", label: "About" },
+    { id: "work", label: "Work" },
+    { id: "skills", label: "Skills" },
+    { id: "journey", label: "Journey" },
+    { id: "contact", label: "Contact" },
+  ]
+
+  return (
+    <div
+      className="portfolio"
+      onMouseMove={handleMouseMove}
+      style={{
+        "--mouse-x": `${mousePosition.x}%`,
+        "--mouse-y": `${mousePosition.y}%`,
+      }}
+    >
+
+      {/* =========================================
+          NAVBAR
+      ========================================= */}
+
       <nav className="navbar">
-        <div className="logo">GR.</div>
+
+        <a href="#" className="logo">
+          GR.
+        </a>
 
         <div className="nav-links">
-          <a href="#about">About</a>
-          <a href="#work">Work</a>
-          <a href="#skills">Skills</a>
-          <a href="#journey">Journey</a>
-          <a href="#contact">Contact</a>
+
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className={
+                activeSection === item.id ? "active-nav" : ""
+              }
+            >
+              {item.label}
+            </a>
+          ))}
+
         </div>
+
       </nav>
 
-      {/* HERO */}
+
+      {/* =========================================
+          HERO
+      ========================================= */}
+
       <section className="hero">
+
+        <div className="hero-glow"></div>
 
         <div className="hero-content fade-up">
 
@@ -37,14 +158,22 @@ function App() {
             Turning data into insights, and ideas into meaningful solutions.
           </p>
 
-          <a href="#about" className="explore-button">
-            Explore my work →
+          <a
+            href="#about"
+            className="explore-button"
+          >
+            Explore my work
+            <span>→</span>
           </a>
 
         </div>
 
+
         {/* DATA VISUAL */}
+
         <div className="data-visual">
+
+          <div className="data-grid"></div>
 
           <div className="data-circle"></div>
 
@@ -57,6 +186,8 @@ function App() {
           <div className="data-point point-3"></div>
           <div className="data-point point-4"></div>
 
+          <div className="data-pulse"></div>
+
           <div className="visual-label">
             DATA → INSIGHT
           </div>
@@ -65,8 +196,15 @@ function App() {
 
       </section>
 
-      {/* ABOUT */}
-      <section id="about" className="about reveal">
+
+      {/* =========================================
+          ABOUT
+      ========================================= */}
+
+      <section
+        id="about"
+        className="about reveal"
+      >
 
         <div className="section-label">
           01 — ABOUT
@@ -88,6 +226,7 @@ function App() {
             </div>
 
           </h2>
+
 
           <div className="about-text">
 
@@ -111,6 +250,7 @@ function App() {
 
         </div>
 
+
         <div className="about-stats">
 
           <div className="stat">
@@ -132,8 +272,15 @@ function App() {
 
       </section>
 
-      {/* PROJECTS */}
-      <section id="work" className="projects reveal">
+
+      {/* =========================================
+          PROJECTS
+      ========================================= */}
+
+      <section
+        id="work"
+        className="projects reveal"
+      >
 
         <div className="section-label">
           02 — SELECTED WORK
@@ -141,12 +288,24 @@ function App() {
 
         <div className="projects-heading">
           <h2>Things I've built.</h2>
+          <p>
+            A few projects where data meets real-world problems.
+          </p>
         </div>
+
 
         <div className="projects-grid">
 
+
           {/* SALES LENS */}
-          <div className="project-card">
+
+          <div
+            className="project-card"
+            onMouseMove={handleCardMove}
+            onMouseLeave={resetCard}
+          >
+
+            <div className="card-glow"></div>
 
             <div className="project-number">
               01
@@ -158,7 +317,9 @@ function App() {
                 END-TO-END DATA ANALYTICS
               </div>
 
-              <h3>Sales Lens</h3>
+              <h3>
+                Sales Lens
+              </h3>
 
               <p>
                 An end-to-end sales analytics platform that transforms
@@ -167,39 +328,47 @@ function App() {
                 analytics and AI-powered summaries.
               </p>
 
+
               <div className="case-study">
 
                 <div>
                   <span>THE APPROACH</span>
+
                   <p>
                     Built a data pipeline to clean, transform and validate
                     sales data before storing it in Snowflake for analysis.
                   </p>
                 </div>
 
+
                 <div>
                   <span>KEY FEATURES</span>
+
                   <p>
                     Sales and profit analysis, regional and product insights,
                     interactive analytics and AI-generated executive summaries.
                   </p>
                 </div>
 
+
                 <div>
                   <span>TECHNOLOGY</span>
 
                   <div className="project-tags">
+
                     <span>Python</span>
                     <span>Pandas</span>
                     <span>Django</span>
                     <span>Snowflake</span>
                     <span>AWS S3</span>
                     <span>Gemini AI</span>
+
                   </div>
 
                 </div>
 
               </div>
+
 
               <a
                 href="https://github.com/gargiiiiiii14-png/Sales-Lens"
@@ -207,10 +376,12 @@ function App() {
                 rel="noreferrer"
                 className="project-link"
               >
-                View on GitHub ↗
+                View on GitHub
+                <span>↗</span>
               </a>
 
             </div>
+
 
             <div className="project-arrow">
               ↗
@@ -218,8 +389,16 @@ function App() {
 
           </div>
 
+
           {/* CREDIT RISK */}
-          <div className="project-card">
+
+          <div
+            className="project-card"
+            onMouseMove={handleCardMove}
+            onMouseLeave={resetCard}
+          >
+
+            <div className="card-glow"></div>
 
             <div className="project-number">
               02
@@ -231,7 +410,9 @@ function App() {
                 MACHINE LEARNING
               </div>
 
-              <h3>Credit Risk Analysis</h3>
+              <h3>
+                Credit Risk Analysis
+              </h3>
 
               <p>
                 A machine learning model designed to predict credit risk
@@ -239,10 +420,12 @@ function App() {
                 with an interactive application for real-time predictions.
               </p>
 
+
               <div className="case-study">
 
                 <div>
                   <span>THE APPROACH</span>
+
                   <p>
                     Preprocessed the German Credit Dataset, performed
                     feature engineering and compared multiple
@@ -250,29 +433,35 @@ function App() {
                   </p>
                 </div>
 
+
                 <div>
                   <span>MODEL & RESULTS</span>
+
                   <p>
                     Random Forest with GridSearchCV achieved 71.5% accuracy,
                     88.57% recall and an 81.31% F1 score.
                   </p>
                 </div>
 
+
                 <div>
                   <span>TECHNOLOGY</span>
 
                   <div className="project-tags">
+
                     <span>Python</span>
                     <span>Pandas</span>
                     <span>Scikit-learn</span>
                     <span>GridSearchCV</span>
                     <span>Streamlit</span>
                     <span>Joblib</span>
+
                   </div>
 
                 </div>
 
               </div>
+
 
               <div className="project-links">
 
@@ -282,7 +471,8 @@ function App() {
                   rel="noreferrer"
                   className="project-link"
                 >
-                  GitHub ↗
+                  GitHub
+                  <span>↗</span>
                 </a>
 
                 <a
@@ -291,12 +481,14 @@ function App() {
                   rel="noreferrer"
                   className="project-link"
                 >
-                  Live Demo ↗
+                  Live Demo
+                  <span>↗</span>
                 </a>
 
               </div>
 
             </div>
+
 
             <div className="project-arrow">
               ↗
@@ -308,67 +500,107 @@ function App() {
 
       </section>
 
-      {/* SKILLS */}
-      <section id="skills" className="skills reveal">
+
+      {/* =========================================
+          SKILLS
+      ========================================= */}
+
+      <section
+        id="skills"
+        className="skills reveal"
+      >
 
         <div className="section-label">
           03 — SKILLS
         </div>
 
         <div className="skills-heading">
-          <h2>Tools I work with.</h2>
+
+          <h2>
+            Tools I work with.
+          </h2>
+
+          <p>
+            Technologies I use to turn questions into solutions.
+          </p>
+
         </div>
+
 
         <div className="skills-grid">
 
           <div className="skill-item">
             <span>01</span>
             <strong>Python</strong>
+            <div className="skill-arrow">↗</div>
           </div>
 
           <div className="skill-item">
             <span>02</span>
             <strong>SQL</strong>
+            <div className="skill-arrow">↗</div>
           </div>
 
           <div className="skill-item">
             <span>03</span>
             <strong>Pandas</strong>
+            <div className="skill-arrow">↗</div>
           </div>
 
           <div className="skill-item">
             <span>04</span>
             <strong>Power BI</strong>
+            <div className="skill-arrow">↗</div>
           </div>
 
           <div className="skill-item">
             <span>05</span>
             <strong>Excel</strong>
+            <div className="skill-arrow">↗</div>
           </div>
 
           <div className="skill-item">
             <span>06</span>
             <strong>Machine Learning</strong>
+            <div className="skill-arrow">↗</div>
           </div>
 
         </div>
 
       </section>
 
-      {/* JOURNEY */}
-      <section id="journey" className="journey reveal">
+
+      {/* =========================================
+          JOURNEY
+      ========================================= */}
+
+      <section
+        id="journey"
+        className="journey reveal"
+      >
 
         <div className="section-label">
           04 — JOURNEY
         </div>
 
         <div className="journey-heading">
-          <h2>Education & experience.</h2>
+
+          <h2>
+            Education & experience.
+          </h2>
+
+          <p>
+            A timeline of how I'm building my data science journey.
+          </p>
+
         </div>
+
 
         <div className="timeline">
 
-          {/* 2023 — HIGHER SECONDARY */}
+
+          {/* 2023 */}
+
           <div className="timeline-item">
 
             <div className="timeline-year">
@@ -383,9 +615,13 @@ function App() {
                 EDUCATION
               </div>
 
-              <h3>Higher Secondary</h3>
+              <h3>
+                Higher Secondary
+              </h3>
 
-              <h4>HM Education Centre</h4>
+              <h4>
+                HM Education Centre
+              </h4>
 
               <p>
                 Completed Higher Secondary education in 2023.
@@ -395,7 +631,9 @@ function App() {
 
           </div>
 
-          {/* 2024 — DATA SCIENCE */}
+
+          {/* 2024 */}
+
           <div className="timeline-item">
 
             <div className="timeline-year">
@@ -410,21 +648,30 @@ function App() {
                 EDUCATION
               </div>
 
-              <h3>Data Science</h3>
+              <h3>
+                Data Science
+              </h3>
 
-              <h4>Undergraduate Studies</h4>
+              <h4>
+                Undergraduate Studies
+              </h4>
 
               <p>
                 Building a strong foundation in programming, statistics,
                 databases, data analysis and machine learning.
               </p>
 
-            
+              <div className="timeline-detail">
+                CGPA <strong>7.1</strong>
+              </div>
+
             </div>
 
           </div>
 
-          {/* 2025 — SALES LENS */}
+
+          {/* 2025 */}
+
           <div className="timeline-item">
 
             <div className="timeline-year">
@@ -439,9 +686,13 @@ function App() {
                 PROJECT
               </div>
 
-              <h3>Sales Lens</h3>
+              <h3>
+                Sales Lens
+              </h3>
 
-              <h4>End-to-End Data Analytics</h4>
+              <h4>
+                End-to-End Data Analytics
+              </h4>
 
               <p>
                 Built an interactive sales analytics platform using
@@ -452,7 +703,9 @@ function App() {
 
           </div>
 
-          {/* NOW — GOAL */}
+
+          {/* NOW */}
+
           <div className="timeline-item">
 
             <div className="timeline-year">
@@ -467,7 +720,9 @@ function App() {
                 GOAL
               </div>
 
-              <h3>Becoming a Data Scientist</h3>
+              <h3>
+                Becoming a Data Scientist
+              </h3>
 
               <p>
                 Continuing to strengthen my analytical, technical and
@@ -483,8 +738,15 @@ function App() {
 
       </section>
 
-      {/* CONTACT */}
-      <section id="contact" className="contact reveal">
+
+      {/* =========================================
+          CONTACT
+      ========================================= */}
+
+      <section
+        id="contact"
+        className="contact reveal"
+      >
 
         <div className="contact-content">
 
@@ -506,8 +768,10 @@ function App() {
             href="mailto:gargiiiiiii14@gmail.com"
             className="contact-button"
           >
-            Get in touch →
+            Get in touch
+            <span>→</span>
           </a>
+
 
           <div className="contact-links">
 
@@ -533,7 +797,11 @@ function App() {
 
       </section>
 
-      {/* FOOTER */}
+
+      {/* =========================================
+          FOOTER
+      ========================================= */}
+
       <footer className="footer">
 
         <span>
