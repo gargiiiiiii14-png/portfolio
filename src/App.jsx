@@ -661,9 +661,7 @@ function App() {
                 databases, data analysis and machine learning.
               </p>
 
-              <div className="timeline-detail">
-                CGPA <strong>7.1</strong>
-              </div>
+             
 
             </div>
 
